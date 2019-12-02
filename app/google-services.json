@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "655301810223",
+    "firebase_url": "https://officespace-a8999.firebaseio.com",
+    "project_id": "officespace-a8999",
+    "storage_bucket": "officespace-a8999.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655301810223:android:c07ef0a09bc96415288eda",
+        "android_client_info": {
+          "package_name": "com.example.officespace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655301810223-h5f96tgi1t5stsbu4l76cmdlijk7s9ee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIfkyyBTxwZneql37C2crRboplN6XOxTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655301810223-h5f96tgi1t5stsbu4l76cmdlijk7s9ee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
