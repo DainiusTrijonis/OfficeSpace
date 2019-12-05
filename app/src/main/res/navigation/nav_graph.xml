@@ -3,16 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authenticationFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.officespace.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_authenticationFragment"
-            app:destination="@id/authenticationFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.officespace.SignInFragment"
@@ -32,7 +28,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.officespace.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_authenticationFragment"
+            app:destination="@id/authenticationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/authenticationFragment"
         android:name="com.example.officespace.AuthenticationFragment"

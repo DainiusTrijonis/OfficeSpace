@@ -3,6 +3,8 @@ package com.example.officespace;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -27,9 +29,7 @@ public class AuthenticationFragment extends Fragment {
     int RC_SIGN_IN = 0;
     private String TAG="authentication";
 
-
     public AuthenticationFragment() {
-
 
     }
 
@@ -37,42 +37,42 @@ public class AuthenticationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_authentication, container, false);
-        v.findViewById(R.id.sign_in_button).setOnClickListener((new View.OnClickListener() {
+
+
+        return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        signInButton = view.findViewById(R.id.sign_in_button);
+        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
                 switch (view.getId()) {
                     case R.id.sign_in_button:
                         signIn();
-                        break;
-                    // ...
                 }
-
             }
-        }));
-
+        });
+        // Configure sign-in to request the user's ID, email address, and basic
+        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(getView().getContext(), gso);
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(this.getContext(), gso);
 
-        return v;
+
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(null);
-    }
-
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -85,11 +85,10 @@ public class AuthenticationFragment extends Fragment {
             handleSignInResult(task);
         }
     }
-
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            Log.w(TAG, "sign in successfull");
+
             // Signed in successfully, show authenticated UI.
             updateUI(account);
         } catch (ApiException e) {
@@ -100,12 +99,22 @@ public class AuthenticationFragment extends Fragment {
         }
     }
 
-    private void updateUI(GoogleSignInAccount acc)
-    {
-        if (acc != null)
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this.getContext());
+        updateUI(account);
+    }
+
+    private void updateUI(GoogleSignInAccount account) {
+        if(account != null)
         {
 
         }
+        else
+        {
+            //isnt yet signed in with app in google
+        }
     }
-
 }
