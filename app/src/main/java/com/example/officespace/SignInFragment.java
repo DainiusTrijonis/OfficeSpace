@@ -15,7 +15,6 @@ import android.view.ViewGroup;
  */
 public class SignInFragment extends Fragment {
 
-
     public SignInFragment() {
         // Required empty public constructor
     }

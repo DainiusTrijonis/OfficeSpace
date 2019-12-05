@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -37,8 +38,8 @@ public class AuthenticationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        signInButton = getView().findViewById(R.id.sign_in_button);
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        View v = inflater.inflate(R.layout.fragment_authentication, container, false);
+        v.findViewById(R.id.sign_in_button).setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -50,15 +51,15 @@ public class AuthenticationFragment extends Fragment {
                 }
 
             }
-        });
+        }));
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(null, gso);
+        mGoogleSignInClient = GoogleSignIn.getClient(getView().getContext(), gso);
 
-        return inflater.inflate(R.layout.fragment_authentication, container, false);
+        return v;
     }
 
     @Override
