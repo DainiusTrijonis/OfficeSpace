@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="email">El paštas</string>
+    <string name="sign_out">Atsijungti</string>
+    <string name="name">Vardas</string>
+    <string name="ProfilePicture">Profilio nuotrauka</string>
+    <string name="search_fragment">Greita paieška</string>
+    <string name="splash_screen">Demonstravimo langas</string>
+    <string name="home_fragment">Pradžia</string>
+</resources>

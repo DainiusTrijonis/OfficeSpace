@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "655301810223-ln9eoufo1sli47kkfomb3p0n1as6tii3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.officespace",
+            "certificate_hash": "0a0689f3f2509dbf08c3b0234dc4984a43bb1634"
+          }
+        },
+        {
           "client_id": "655301810223-93pggcvpjvrbme5rlckumsus3b3hsk9v.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -1,11 +1,18 @@
 <resources>
-    <string name="app_name">OfficeSpace</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="app_name" translatable="false">OfficeSpace</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
 
     <string name="twitter_consumer_key" translatable="false">SCKFgKwAkbBY25zLNefx7lZLI</string>
     <string name="twitter_consumer_secret" translatable="false">c92FBEbSdUq06fnb0JVtLvhLUfF0hLkLFsa2XP0BpmindDRoNQ</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="ProfilePicture">profile picture</string>
+    <string name="search_fragment">Search Fragment</string>
+    <string name="splash_screen">Splash screen</string>
 </resources>
