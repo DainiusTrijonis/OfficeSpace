@@ -15,4 +15,5 @@
     <string name="ProfilePicture">profile picture</string>
     <string name="search_fragment">Search Fragment</string>
     <string name="splash_screen">Splash screen</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-4954560196928173/4816367703</string>
 </resources>

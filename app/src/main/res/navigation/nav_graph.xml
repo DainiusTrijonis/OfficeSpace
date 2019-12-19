@@ -8,17 +8,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.officespace.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.example.officespace.SignInFragment"
-        android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_in"/>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.example.officespace.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_adNewFragment"
+            app:destination="@id/adNewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.officespace.SearchFragment"
@@ -45,5 +39,14 @@
             app:destination="@id/profileFragment"
             app:popUpTo="@id/authenticationFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/adNewFragment"
+        android:name="com.example.officespace.AdNewFragment"
+        android:label="fragment_ad_new"
+        tools:layout="@layout/fragment_ad_new" >
+        <action
+            android:id="@+id/action_adNewFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
