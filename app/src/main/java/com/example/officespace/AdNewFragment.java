@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.ContextThemeWrapper;
@@ -112,14 +113,16 @@ public class AdNewFragment extends Fragment {
         String salary = editTextSalary.getText().toString();
         if( title.trim().isEmpty() || about.trim().isEmpty() || companyName.trim().isEmpty() || imageUri.trim().isEmpty() || location.trim().isEmpty() || salary.trim().isEmpty())
         {
-            Toast.makeText(getActivity(), "Please insert info",Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Ad failed to create fill info",Toast.LENGTH_LONG).show();
+
             return;
         }
 
         CollectionReference adbookRef = FirebaseFirestore.getInstance()
                 .collection("ads");
         adbookRef.add(new Ad(companyName,imageUri,location,ownerId,salary,title,about));
-        Toast.makeText(getActivity(), "Ad created",Toast.LENGTH_LONG).show();
 
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        new AddDialog().show(ft, "OKEY");
     }
 }
