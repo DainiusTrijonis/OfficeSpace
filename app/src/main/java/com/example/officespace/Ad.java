@@ -1,6 +1,8 @@
 package com.example.officespace;
 
-public class Ad {
+import java.io.Serializable;
+
+public class Ad implements Serializable {
     private String companyName, location, ownerID, salary, title, about,imageUri;
     public Ad() {
     }
@@ -27,7 +29,7 @@ public class Ad {
         return location;
     }
 
-    public String getOwnerId() {
+    public String getOwnerID() {
         return ownerID;
     }
 

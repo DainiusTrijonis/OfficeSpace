@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_homeFragment_to_adNewFragment"
             app:destination="@id/adNewFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_adFragment"
+            app:destination="@+id/adFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -48,5 +51,18 @@
         <action
             android:id="@+id/action_adNewFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adFragment"
+        android:name="com.example.officespace.AdFragment"
+        android:label="fragment_ad"
+        tools:layout="@layout/fragment_ad" >
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue='"null"' />
+        <argument
+            android:name="ad"
+            app:argType="com.example.officespace.Ad" />
     </fragment>
 </navigation>

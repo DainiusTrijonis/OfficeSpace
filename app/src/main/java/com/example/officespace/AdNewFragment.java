@@ -1,16 +1,10 @@
 package com.example.officespace;
 
-
-import android.content.Context;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -37,7 +30,6 @@ public class AdNewFragment extends Fragment {
     private EditText editTextImage;
     private AdView mAdView;
     public AdNewFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -58,18 +50,11 @@ public class AdNewFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         editTextTitle = getActivity().findViewById(R.id.edit_text_title);
-
         editTextAbout = getActivity().findViewById(R.id.edit_text_about);
-
         editTextImage = getActivity().findViewById(R.id.edit_text_image_uri);
-
         editTextCompanyName = getActivity().findViewById(R.id.edit_text_company_name);
-
         editTextLocation = getActivity().findViewById(R.id.edit_text_location);
-
         editTextSalary = getActivity().findViewById(R.id.edit_text_salary);
-
-
         mAdView = getActivity().findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -79,8 +64,7 @@ public class AdNewFragment extends Fragment {
                 // Code to be executed when an ad finishes loading.
             }
         });
-
-        }
+    }
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {

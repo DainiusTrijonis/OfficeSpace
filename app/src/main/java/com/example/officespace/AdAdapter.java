@@ -1,23 +1,21 @@
 package com.example.officespace;
 
-import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.squareup.picasso.Picasso;
 
-
-
 public class AdAdapter extends FirestoreRecyclerAdapter<Ad, AdAdapter.AdHolder> {
+
+    private OnItemClickListener listener;
+
 
     public AdAdapter(@NonNull FirestoreRecyclerOptions<Ad> options) {
         super(options);
@@ -32,7 +30,6 @@ public class AdAdapter extends FirestoreRecyclerAdapter<Ad, AdAdapter.AdHolder> 
 
         Picasso.get().load(ad.getImageUri())
                 .into(adHolder.imageViewCompanyPhoto);
-
     }
 
     @NonNull
@@ -49,8 +46,7 @@ public class AdAdapter extends FirestoreRecyclerAdapter<Ad, AdAdapter.AdHolder> 
         TextView textViewTitle;
         TextView textViewLocation;
 
-        public AdHolder(@NonNull View itemView)
-        {
+        public AdHolder(@NonNull View itemView) {
             super(itemView);
 
             textViewTitle = itemView.findViewById(R.id.text_view_title);
@@ -59,7 +55,22 @@ public class AdAdapter extends FirestoreRecyclerAdapter<Ad, AdAdapter.AdHolder> 
             textViewLocation = itemView.findViewById(R.id.text_view_location);
             imageViewCompanyPhoto = itemView.findViewById(R.id.image_view_company_photo);
 
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && listener !=null) {
+                        listener.onItemClick(getSnapshots().getSnapshot(position),position);
+                    }
+                }
+            });
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(DocumentSnapshot documentSnapshot,int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 }
