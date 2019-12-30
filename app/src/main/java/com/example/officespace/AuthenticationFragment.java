@@ -15,20 +15,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
 import static android.app.Activity.RESULT_OK;
 
 public class AuthenticationFragment extends Fragment {
-
 
     private int RC_SIGN_IN;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_authentication, container, false);
-
-
-        return v;
+        return inflater.inflate(R.layout.fragment_authentication, container, false);
     }
 
     @Override
@@ -50,7 +48,6 @@ public class AuthenticationFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
     @Override
@@ -64,10 +61,9 @@ public class AuthenticationFragment extends Fragment {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user != null)
                 {
-                    Navigation.findNavController(getView()).navigate(R.id.action_authenticationFragment_to_profileFragment);
+                    Navigation.findNavController(Objects.requireNonNull(getView())).navigate(R.id.action_authenticationFragment_to_profileFragment);
 
                 }
-            } else {
             }
         }
     }

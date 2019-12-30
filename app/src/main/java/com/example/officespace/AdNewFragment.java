@@ -21,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class AdNewFragment extends Fragment {
     private EditText editTextTitle;
     private EditText editTextCompanyName;
@@ -41,7 +43,6 @@ public class AdNewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_ad_new, container, false);
     }
 
@@ -49,7 +50,7 @@ public class AdNewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        editTextTitle = getActivity().findViewById(R.id.edit_text_title);
+        editTextTitle = Objects.requireNonNull(getActivity()).findViewById(R.id.edit_text_title);
         editTextAbout = getActivity().findViewById(R.id.edit_text_about);
         editTextImage = getActivity().findViewById(R.id.edit_text_image_uri);
         editTextCompanyName = getActivity().findViewById(R.id.edit_text_company_name);
@@ -68,27 +69,27 @@ public class AdNewFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        MenuInflater menuInflater = getActivity().getMenuInflater();
+        MenuInflater menuInflater = Objects.requireNonNull(getActivity()).getMenuInflater();
         menuInflater.inflate(R.menu.new_ad_menu,menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.save_ad:
-                saveAd();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.save_ad) {
+            saveAd();
+            return true;
         }
-
+        return super.onOptionsItemSelected(item);
     }
 
     private void saveAd()
     {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        String ownerId = currentUser.getUid();
+        String ownerId = null;
+        if (currentUser != null) {
+            ownerId = currentUser.getUid();
+        }
         String title = editTextTitle.getText().toString();
         String about = editTextAbout.getText().toString();
         String companyName = editTextCompanyName.getText().toString();
@@ -98,7 +99,6 @@ public class AdNewFragment extends Fragment {
         if( title.trim().isEmpty() || about.trim().isEmpty() || companyName.trim().isEmpty() || imageUri.trim().isEmpty() || location.trim().isEmpty() || salary.trim().isEmpty())
         {
             Toast.makeText(getActivity(), "Ad failed to create fill info",Toast.LENGTH_LONG).show();
-
             return;
         }
 
@@ -106,7 +106,7 @@ public class AdNewFragment extends Fragment {
                 .collection("ads");
         adbookRef.add(new Ad(companyName,imageUri,location,ownerId,salary,title,about));
 
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        FragmentTransaction ft = Objects.requireNonNull(getFragmentManager()).beginTransaction();
         new AddDialog().show(ft, "OKEY");
     }
 }

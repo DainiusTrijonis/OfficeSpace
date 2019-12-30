@@ -17,41 +17,36 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.util.Objects;
+
 public class HomeFragment extends Fragment  {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference adbookRef = db.collection("ads");
-
     private AdAdapter adapter;
 
     public HomeFragment() {
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        FloatingActionButton buttonAddAd = getActivity().findViewById(R.id.button_add_ad);
+        FloatingActionButton buttonAddAd = Objects.requireNonNull(getActivity()).findViewById(R.id.button_add_ad);
         buttonAddAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_adNewFragment);
+                Navigation.findNavController(Objects.requireNonNull(getView())).navigate(R.id.action_homeFragment_to_adNewFragment);
             }
         });
         setUpRecyclerView();
     }
-
-
-
-
 
     private void setUpRecyclerView() {
         Query query = adbookRef.orderBy("title",Query.Direction.DESCENDING);
@@ -61,7 +56,7 @@ public class HomeFragment extends Fragment  {
                 .build();
         adapter = new AdAdapter(options);
 
-        RecyclerView recyclerView = getActivity().findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = Objects.requireNonNull(getActivity()).findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
@@ -74,10 +69,9 @@ public class HomeFragment extends Fragment  {
                 Bundle bundle = new Bundle();
                 bundle.putString("id",id);
                 bundle.putSerializable("ad",ad);
-                Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_adFragment,bundle);
+                Navigation.findNavController(Objects.requireNonNull(getView())).navigate(R.id.action_homeFragment_to_adFragment,bundle);
             }
         });
-
     }
 
     @Override

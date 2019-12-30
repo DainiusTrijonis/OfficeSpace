@@ -18,15 +18,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
+import java.util.Objects;
+
 public class ProfileFragment extends Fragment {
 
     private Button signOutButton;
-
     private FirebaseUser firebaseUser;
     public ProfileFragment() {
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,7 +38,7 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        TextView nameTextView = getActivity().findViewById(R.id.textViewName);
+        TextView nameTextView = Objects.requireNonNull(getActivity()).findViewById(R.id.textViewName);
         TextView emailTextView = getActivity().findViewById(R.id.textViewEmail);
         ImageView profileImageView = getActivity().findViewById(R.id.profileImageView);
 
@@ -49,10 +48,10 @@ public class ProfileFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     AuthUI.getInstance()
-                            .signOut(getContext())
+                            .signOut(Objects.requireNonNull(getContext()))
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    Navigation.findNavController(getView()).navigate(R.id.action_profileFragment_to_authenticationFragment);
+                                    Navigation.findNavController(Objects.requireNonNull(getView())).navigate(R.id.action_profileFragment_to_authenticationFragment);
                                 }
                             });
                 }

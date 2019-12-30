@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">OfficeSpace</string>
     <string name="title_activity_main" translatable="false">MainActivity</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-
-
     <string name="twitter_consumer_key" translatable="false">SCKFgKwAkbBY25zLNefx7lZLI</string>
     <string name="twitter_consumer_secret" translatable="false">c92FBEbSdUq06fnb0JVtLvhLUfF0hLkLFsa2XP0BpmindDRoNQ</string>
     <string name="home_fragment">Home Fragment</string>
@@ -16,5 +12,22 @@
     <string name="search_fragment">Search Fragment</string>
     <string name="splash_screen">Splash screen</string>
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-4954560196928173/4816367703</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="company">Company</string>
+    <string name="companyImage">CompanyImage</string>
+    <string name="title_of_job">Title of job</string>
+    <string name="company_name">Company name</string>
+    <string name="location_of_job">Location of job</string>
+    <string name="salary_of_job">Salary of job</string>
+    <string name="image_uri_representing_company">Image URI representing company</string>
+    <string name="about_job_or_company">About job or company</string>
+    <string name="ok">OK</string>
+    <string name="add_successfully_added">Add successfully added</string>
+    <string name="success">Success</string>
+    <string name="image_for_success_dialog">Image for success dialog</string>
+    <string name="search_for_title">Search for title</string>
+    <string name="search">Search</string>
+    <string name="home">HOME</string>
+    <string name="quick_search">Quick Search</string>
+    <string name="profile">Profile</string>
+    <string name="save">Save</string>
 </resources>

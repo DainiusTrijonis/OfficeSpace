@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="HOME" android:icon="@drawable/ic_home_black_24dp" android:id="@+id/homeFragment"></item>
-    <item android:title="Quick Search" android:icon="@drawable/ic_search_black_24dp" android:id="@+id/searchFragment"></item>
-    <item android:title="Profile" android:icon="@drawable/ic_settings_black_24dp" android:id="@+id/profileFragment"></item>
+    <item
+        android:title="@string/home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/homeFragment" />
+    <item
+        android:title="@string/quick_search"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:id="@+id/searchFragment" />
+    <item
+        android:title="@string/profile"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:id="@+id/profileFragment" />
 </menu>

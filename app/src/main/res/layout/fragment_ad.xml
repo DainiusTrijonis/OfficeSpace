@@ -6,31 +6,27 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".AdFragment">
-
     <TextView
         android:id="@+id/text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title"
+        android:text=""
         android:textSize="24pt"
         android:textStyle="italic|bold"
         />
-
     <TextView
         android:id="@+id/text_company_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Company name"
+        android:text=""
         android:textSize="18pt"
         android:textStyle="italic|bold"
         />
-
     <TextView
         android:id="@+id/text_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription"
+        android:text=""
         android:textSize="14sp"
         />
-
 </LinearLayout>

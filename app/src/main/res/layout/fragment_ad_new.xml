@@ -18,42 +18,42 @@
         android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"
+        android:hint="@string/title_of_job"
         android:inputType="text"
         android:autofillHints="TODO" />
     <EditText
         android:id="@+id/edit_text_company_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Company name"
+        android:hint="@string/company_name"
         android:inputType="text"
         android:autofillHints="TODO" />
     <EditText
         android:id="@+id/edit_text_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Location"
+        android:hint="@string/location_of_job"
         android:inputType="text"
         android:autofillHints="TODO" />
     <EditText
         android:id="@+id/edit_text_salary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Salary"
+        android:hint="@string/salary_of_job"
         android:inputType="text"
         android:autofillHints="TODO" />
     <EditText
         android:id="@+id/edit_text_image_uri"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Image Uri"
+        android:hint="@string/image_uri_representing_company"
         android:inputType="textUri"
         android:autofillHints="TODO" />
     <EditText
         android:id="@+id/edit_text_about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="About"
+        android:hint="@string/about_job_or_company"
         android:inputType="textMultiLine"
         android:lines="8"
         android:minLines="6"
@@ -61,7 +61,4 @@
         android:maxLines="10"
         android:scrollbars="vertical"
         android:autofillHints="TODO" />
-
-
-
 </LinearLayout>

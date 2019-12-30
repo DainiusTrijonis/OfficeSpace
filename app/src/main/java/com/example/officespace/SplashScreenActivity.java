@@ -16,7 +16,6 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run()
             {
-
                 finish();
             }
         }, SPLASH_TIME_OUT);

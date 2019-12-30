@@ -7,4 +7,22 @@
     <string name="search_fragment">Greita paieška</string>
     <string name="splash_screen">Demonstravimo langas</string>
     <string name="home_fragment">Pradžia</string>
+    <string name="company">Kompanijos pavadinimas</string>
+    <string name="companyImage">Kompanijos logo ar paveikslėlis</string>
+    <string name="title_of_job">Pavadinimas darbo</string>
+    <string name="company_name">Kompanijos pavadinimas</string>
+    <string name="location_of_job">Darbo lokacija</string>
+    <string name="image_uri_representing_company">Paveikslėlio URI</string>
+    <string name="about_job_or_company">Apie kompanija arba darba</string>
+    <string name="ok">Gerai</string>
+    <string name="add_successfully_added">Sėkmingai pridėtas skelbimas</string>
+    <string name="success">Sėkmingai papildyta</string>
+    <string name="image_for_success_dialog">Paveikslelis skirtas dialogui kai papildoma reklama</string>
+    <string name="search_for_title">Ieskoti pagal pavadinima</string>
+    <string name="search">Paieska</string>
+    <string name="home">Pradžia</string>
+    <string name="quick_search">Paieška</string>
+    <string name="profile">Profilis</string>
+    <string name="save">Išsaugoti</string>
+    <string name="salary_of_job">Alga</string>
 </resources>

@@ -11,13 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.Objects;
+
 public class AddDialog extends DialogFragment {
 
     private Button button;
-
     private static final String TAG = "DialogFragment";
-
-
     public AddDialog() {
         setCancelable(false);
     }
@@ -34,7 +33,7 @@ public class AddDialog extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        button = getView().findViewById(R.id.buttonOk);
+        button = Objects.requireNonNull(getView()).findViewById(R.id.buttonOk);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +53,7 @@ public class AddDialog extends DialogFragment {
         if (dialog != null) {
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.WRAP_CONTENT;
-            dialog.getWindow().setLayout(width, height);
+            Objects.requireNonNull(dialog.getWindow()).setLayout(width, height);
         }
     }
 
