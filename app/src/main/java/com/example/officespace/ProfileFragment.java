@@ -23,7 +23,7 @@ import java.util.Objects;
 public class ProfileFragment extends Fragment {
 
     private Button signOutButton;
-    private FirebaseUser firebaseUser;
+    private FirebaseUser user;
     public ProfileFragment() {
     }
 
@@ -37,7 +37,7 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         TextView nameTextView = Objects.requireNonNull(getActivity()).findViewById(R.id.textViewName);
         TextView emailTextView = getActivity().findViewById(R.id.textViewEmail);
         ImageView profileImageView = getActivity().findViewById(R.id.profileImageView);
@@ -65,8 +65,13 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
 
-
-
-
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
 }
